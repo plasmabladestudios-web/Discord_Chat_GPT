@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatWave — WhatsApp-like Chat</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body data-theme="dark" style="--accent:#25d366; --bubble-radius:14px;">
+    <aside class="left-panel">
+      <h1>ChatWave</h1>
+
+      <section class="card">
+        <h2>Profile</h2>
+        <input id="name" placeholder="Display name" />
+        <input id="bio" placeholder="Bio" />
+        <input id="avatar" placeholder="Avatar emoji" maxlength="2" />
+        <label>Accent color <input type="color" id="accent" value="#25d366" /></label>
+        <button id="save-profile">Save Profile</button>
+      </section>
+
+      <section class="card">
+        <h2>Custom UI</h2>
+        <label>Theme
+          <select id="theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+          </select>
+        </label>
+        <label>Wallpaper
+          <select id="wallpaper">
+            <option value="none">Plain</option>
+            <option value="grid">Grid</option>
+            <option value="waves">Waves</option>
+          </select>
+        </label>
+        <label>Bubble Radius <input id="bubble-radius" type="range" min="4" max="24" value="14" /></label>
+        <button id="apply-ui">Apply UI</button>
+      </section>
+
+      <section class="card">
+        <h2>Status (24h)</h2>
+        <input id="status-input" placeholder="Share your status..." />
+        <button id="post-status">Post Status</button>
+        <ul id="status-feed"></ul>
+      </section>
+    </aside>
+
+    <main class="chat-layout">
+      <header>
+        <div>
+          <h2 id="chat-title">Community</h2>
+          <small>Real-time conversation</small>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <footer>
+        <input id="message-input" placeholder="Type a message" />
+        <button id="send-message">Send</button>
+      </footer>
+    </main>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
